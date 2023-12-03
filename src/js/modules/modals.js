@@ -1,9 +1,11 @@
 export const modals = () => {
+    let btnPressed = false;
+
     function bindModal(
         triggerSelector,
         modalSelector,
         closeSelector,
-        closeClickOverlay = true,
+        destroy = false,
     ) {
         const trigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
@@ -17,8 +19,15 @@ export const modals = () => {
                     e.preventDefault();
                 }
 
+                if (destroy) {
+                    item.remove();
+                }
+
+                btnPressed = true;
+
                 windows.forEach((item) => {
                     item.style.display = "none";
+                    item.classList.add('animated', 'fadeIn');
                 });
 
                 modal.style.display = "block";
@@ -37,7 +46,7 @@ export const modals = () => {
         });
 
         modal.addEventListener("click", (e) => {
-            if (e.target === modal && closeClickOverlay) {
+            if (e.target === modal) {
                 windows.forEach((item) => {
                     item.style.display = "none";
                 });
@@ -60,6 +69,7 @@ export const modals = () => {
                 if (!display) {
                     document.querySelector(selector).style.display = "block";
                     document.body.classList.add("modal-open");
+                    let scroll = calcScroll();
                 }
             })
         }, time);
@@ -79,8 +89,18 @@ export const modals = () => {
         return scrollWidth;
     }
 
+    function openByScroll(selector) {
+        window.addEventListener('scroll', () => {
+            if (!btnPressed && (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight)) {
+                document.querySelector(selector).click();
+            }
+        })
+    }
+
     bindModal(".button-design", ".popup-design", ".popup-close");
     bindModal(".button-consultation", ".popup-consultation", ".popup-close");
+    bindModal(".fixed-gift", ".popup-gift", ".popup-close", true);
 
-     // showModalByTime(".popup-consultation", 60000);
+    openByScroll('.fixed-gift');
+    // showModalByTime(".popup-consultation", 60000);
 };
