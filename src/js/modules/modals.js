@@ -1,4 +1,4 @@
-export const modals = () => {
+const modals = () => {
     let btnPressed = false;
 
     function bindModal(
@@ -104,3 +104,5 @@ export const modals = () => {
     openByScroll('.fixed-gift');
     // showModalByTime(".popup-consultation", 60000);
 };
+
+export default modals;
