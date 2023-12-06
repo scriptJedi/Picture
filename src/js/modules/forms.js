@@ -4,9 +4,9 @@ const forms = () => {
         upload = document.querySelectorAll('[name="upload"]');
 
     const message = {
-        loading: 'Загрузка...',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
-        failure: 'Что-то пошло не так...',
+        loading: 'Завантаження...',
+        success: 'Дякую! Скоро ми з вами звʼяжемось',
+        failure: 'Щось пішло не так...',
         spinner: 'assets/img/spinner.gif',
         ok: 'assets/img/ok.png',
         fail: 'assets/img/fail.png'
