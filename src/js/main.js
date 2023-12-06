@@ -12,5 +12,5 @@ window.addEventListener('DOMContentLoaded', () => {
     sliders('.main-slider-item', 'vertical');
     forms();
     mask('[name="phone"]');
-    showMoreStyles('.button-styles', '.styles-2');
+    showMoreStyles('.button-styles', '#styles .row');
 })
