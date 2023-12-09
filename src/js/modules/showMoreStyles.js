@@ -4,19 +4,6 @@ const showMoreStyles = (trigger, wrapper) => {
     const btn = document.querySelector(trigger),
         url = 'assets/db.json';
 
-    // cards.forEach(el => {
-    //     el.classList.add('animated', 'fadeInUp');
-    // });
-    //
-    // btn.addEventListener('click', () => {
-    //     cards.forEach(el => {
-    //         el.classList.remove('hidden-lg', 'hidden-md', 'hidden-sm', 'hidden-xs');
-    //         el.classList.add('col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1');
-    //     });
-    //     // btn.styles.display = 'none';
-    //     btn.remove();
-    // });
-
     btn.addEventListener('click', function() {
         getResource(url)
             .then(res => createCards(res.styles))
