@@ -10,8 +10,6 @@ import accordion from "./modules/accordion";
 import burger from "./modules/burger";
 
 window.addEventListener('DOMContentLoaded', () => {
-    "use strict";
-
     modals();
     sliders('.feedback-slider-item', '', '.main-prev-btn', '.main-next-btn');
     sliders('.main-slider-item', 'vertical');
