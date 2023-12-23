@@ -11,6 +11,8 @@ import burger from "./modules/burger";
 import scrolling from "./modules/scrolling";
 
 window.addEventListener('DOMContentLoaded', () => {
+    "use strict";
+
     modals();
     sliders('.feedback-slider-item', '', '.main-prev-btn', '.main-next-btn');
     sliders('.main-slider-item', 'vertical');
